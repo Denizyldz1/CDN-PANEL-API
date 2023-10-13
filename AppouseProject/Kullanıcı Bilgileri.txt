@@ -1,0 +1,24 @@
+
+Admin Kullanıcısı :
+
+UserName : admin
+Password : Admin123.
+
+
+Kullanici 1 : 
+{
+  "userName": "kullanici1",
+  "email": "kullanici1@example.com",
+  "password": "Kullanici1.",
+  "confirmPassword": "Kullanici1.",
+  "userType": "Standart"
+}
+
+Kullanici 2 :
+{
+  "userName": "kullanici2",
+  "email": "kullanici2@example.com",
+  "password": "Kullanici2.",
+  "confirmPassword": "Kullanici2.",
+  "userType": "Premium"
+}

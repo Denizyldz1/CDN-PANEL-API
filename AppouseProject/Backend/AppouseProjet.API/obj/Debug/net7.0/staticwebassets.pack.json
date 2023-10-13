@@ -1,0 +1,33 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\1_indir (2).jfif",
+      "PackagePath": "staticwebassets\\Upload\\1_indir (2).jfif"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\2_deneme1.png",
+      "PackagePath": "staticwebassets\\Upload\\2_deneme1.png"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\2_indir (1).jfif",
+      "PackagePath": "staticwebassets\\Upload\\2_indir (1).jfif"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AppouseProjet.API.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.AppouseProjet.API.props",
+      "PackagePath": "build\\AppouseProjet.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.AppouseProjet.API.props",
+      "PackagePath": "buildMultiTargeting\\AppouseProjet.API.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.AppouseProjet.API.props",
+      "PackagePath": "buildTransitive\\AppouseProjet.API.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
