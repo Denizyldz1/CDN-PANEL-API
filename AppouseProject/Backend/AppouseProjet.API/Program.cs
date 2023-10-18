@@ -9,6 +9,8 @@ using AppouseProject.Data.UnitOfWorks;
 using AppouseProject.Service.Mapping;
 using AppouseProject.Service.Services;
 using AppouseProjet.API.Filters;
+using AppouseProjet.API.ImageService;
+using AppouseProjet.API.MailServices;
 using AppouseProjet.API.Middlewares;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Identity;
@@ -32,8 +34,9 @@ builder.Services.Configure<ApiBehaviorOptions>(x =>
 
 builder.Services.AddAutoMapper(typeof(MapProfile));
 
-builder.Services.AddScoped(typeof(ImageUpload));
-builder.Services.AddScoped(typeof(ImageDelete));
+builder.Services.AddScoped<IMailService, MailService>();
+
+
 builder.Services.AddScoped(typeof(AuthorityControl));
 builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
 builder.Services.AddScoped<IUserService, UserService>();
@@ -49,6 +52,7 @@ builder.Services.AddScoped<IFileRepository,FileRepository>();
 builder.Services.AddScoped<IQuotaRepository,QuotaRepository>();
 builder.Services.AddScoped<IQuotaService,QuotaService>();
 
+builder.Services.AddScoped<InterfaceImageService,ImageService>();
 
 builder.Services.AddDbContext<AppDbContext>(opt =>
 {

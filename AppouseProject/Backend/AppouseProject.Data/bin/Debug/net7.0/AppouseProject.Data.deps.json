@@ -67,6 +67,18 @@
           }
         }
       },
+      "Microsoft.AspNetCore.Http.Features/5.0.17": {
+        "dependencies": {
+          "Microsoft.Extensions.Primitives": "7.0.0",
+          "System.IO.Pipelines": "5.0.2"
+        },
+        "runtime": {
+          "lib/net5.0/Microsoft.AspNetCore.Http.Features.dll": {
+            "assemblyVersion": "5.0.0.0",
+            "fileVersion": "5.0.1722.21507"
+          }
+        }
+      },
       "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.12": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore.Relational": "7.0.12",
@@ -494,6 +506,14 @@
           }
         }
       },
+      "System.IO.Pipelines/5.0.2": {
+        "runtime": {
+          "lib/netcoreapp3.0/System.IO.Pipelines.dll": {
+            "assemblyVersion": "5.0.0.1",
+            "fileVersion": "5.0.1522.11506"
+          }
+        }
+      },
       "System.Memory/4.5.4": {},
       "System.Memory.Data/1.0.2": {
         "dependencies": {
@@ -609,6 +629,7 @@
       },
       "AppouseProject.Core/1.0.0": {
         "dependencies": {
+          "Microsoft.AspNetCore.Http.Features": "5.0.17",
           "Microsoft.AspNetCore.Identity.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore": "7.0.12",
           "Microsoft.EntityFrameworkCore.SqlServer": "7.0.12"
@@ -652,6 +673,13 @@
       "sha512": "sha512-VI5cyyM3u9UWbRJqvCH3BuTgw9fAynH9M9AqnAQ8fz4M37dPOkIkGAQ0CwCcLUdHnrdA1bEHANScAGI+LVkYgw==",
       "path": "microsoft.aspnetcore.cryptography.keyderivation/7.0.12",
       "hashPath": "microsoft.aspnetcore.cryptography.keyderivation.7.0.12.nupkg.sha512"
+    },
+    "Microsoft.AspNetCore.Http.Features/5.0.17": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-3jG2xS+dx8DDCGV/F+STdPTg89lX3ao3dF/VEPvJaz3wzBIjuadipTtYNEXDIVuOPZwb6jdmhrX9jkzOIBm5cw==",
+      "path": "microsoft.aspnetcore.http.features/5.0.17",
+      "hashPath": "microsoft.aspnetcore.http.features.5.0.17.nupkg.sha512"
     },
     "Microsoft.AspNetCore.Identity.EntityFrameworkCore/7.0.12": {
       "type": "package",
@@ -918,6 +946,13 @@
       "sha512": "sha512-Qibsj9MPWq8S/C0FgvmsLfIlHLE7ay0MJIaAmK94ivN3VyDdglqReed5qMvdQhSL0BzK6v0Z1wB/sD88zVu6Jw==",
       "path": "system.identitymodel.tokens.jwt/6.24.0",
       "hashPath": "system.identitymodel.tokens.jwt.6.24.0.nupkg.sha512"
+    },
+    "System.IO.Pipelines/5.0.2": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Iew+dfa6FFiyvWBdRmXApixRY1db+beyutpIck4SOSe0NLM8FD/7AD54MscqVLhvfSMLHO7KadjTRT7fqxOGTA==",
+      "path": "system.io.pipelines/5.0.2",
+      "hashPath": "system.io.pipelines.5.0.2.nupkg.sha512"
     },
     "System.Memory/4.5.4": {
       "type": "package",

@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "61r1T7zjMdlSD4bOr8wHQnLh7j6WEsqOWqbeDSl6B1c=",
+  "Hash": "+heL8IigCSr3r1kazFgFjiMgDA1qC0XvUKHmoVdi94g=",
   "Source": "AppouseProjet.API",
   "BasePath": "_content/AppouseProjet.API",
   "Mode": "Default",
@@ -32,6 +32,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Upload\\1_indir (2).jfif"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\1_photo-1575936123452-b67c3203c357.jfif",
+      "SourceId": "AppouseProjet.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\",
+      "BasePath": "_content/AppouseProjet.API",
+      "RelativePath": "Upload/1_photo-1575936123452-b67c3203c357.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\1_photo-1575936123452-b67c3203c357.jfif"
     },
     {
       "Identity": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\2_deneme1.png",
@@ -66,6 +83,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\Upload\\2_indir (1).jfif"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\Deleted\\1_deneme1.png",
+      "SourceId": "AppouseProjet.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\",
+      "BasePath": "_content/AppouseProjet.API",
+      "RelativePath": "Upload/Deleted/1_deneme1.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Deleted\\1_deneme1.png"
+    },
+    {
+      "Identity": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\Deleted\\1_Test1.jfif",
+      "SourceId": "AppouseProjet.API",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\",
+      "BasePath": "_content/AppouseProjet.API",
+      "RelativePath": "Upload/Deleted/1_Test1.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Upload\\Deleted\\1_Test1.jfif"
     }
   ]
 }

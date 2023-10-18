@@ -1,0 +1,37 @@
+﻿@model TokenModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Link Bilgileri</h4>
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>AccessToken</th>
+@*                        <th>AccessTokenExpiratio</th>
+                        <th>RefreshToken</th>
+                        <th>RefreshTokenExpiration</th>*@
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>@Model.AccessToken</td>
+@*                        <td>@Model.AccessTokenExpiration/td>
+                        <td>@Model.RefreshToken/td>
+                        <td>@Model.RefreshTokenExpiration/td>*@
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+

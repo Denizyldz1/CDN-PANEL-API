@@ -6,11 +6,11 @@ namespace AppouseProject.Core.Abstract.Services
 {
     public interface IFileService
     {
-        Task<CustomResponseDto<IEnumerable<ImageFileDto>>> GetAllAsync();
-        Task<CustomResponseDto<IEnumerable<ImageFileDto>>> GetAllByUserIdAsync(int UserId);
-        Task<CustomResponseDto<ImageFileDto>> GetById(int Id);
-        Task<CustomResponseDto<ImageFileDto>> AddAsync(ImageFileDto dto);
-        Task<CustomResponseDto<IEnumerable<ImageFileDto>>> AddRangeAsync(IEnumerable<ImageFileDto> dtos);
+        Task<CustomResponseDto<IEnumerable<FileDto>>> GetAllAsync();
+        Task<CustomResponseDto<IEnumerable<FileDto>>> GetAllByUserIdAsync(int UserId);
+        Task<CustomResponseDto<FileDto>> GetById(int Id);
+        Task<CustomResponseDto<FileDto>> AddAsync(FileDto dto);
+        Task<CustomResponseDto<IEnumerable<FileDto>>> AddRangeAsync(IEnumerable<FileDto> dtos);
         Task<CustomResponseDto<NoContentDto>> RemoveAsync(int id);
         Task<CustomResponseDto<IEnumerable<NoContentDto>>> RemoveRangeAsync(List<int> ids);
 

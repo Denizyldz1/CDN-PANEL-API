@@ -5,9 +5,7 @@ using AppouseProject.Core.Dtos;
 using AppouseProject.Core.Dtos.FileDtos;
 using AppouseProject.Core.Entities;
 using AutoMapper;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using System.Collections.Generic;
 
 namespace AppouseProject.Service.Services
 {
@@ -18,18 +16,15 @@ namespace AppouseProject.Service.Services
         private readonly IUnitOfWork _unitOfWork;
         private readonly IQuotaRepository _quotaRepository;
 
-        public FileService(IFileRepository repository, IMapper mapper, IUnitOfWork unitOfWork = null, IQuotaRepository quotaRepository = null)
+        public FileService(IFileRepository repository, IMapper mapper, IUnitOfWork unitOfWork , IQuotaRepository quotaRepository)
         {
             _repository = repository;
             _mapper = mapper;
             _unitOfWork = unitOfWork;
             _quotaRepository = quotaRepository;
         }
-
-        public async Task<CustomResponseDto<ImageFileDto>> AddAsync(ImageFileDto dto)
+        public async Task<CustomResponseDto<FileDto>> AddAsync(FileDto dto)
         {
-            try
-            {
                 var entity = new ImageFile()
                 {
                     FileName = dto.FileName,
@@ -46,22 +41,12 @@ namespace AppouseProject.Service.Services
                 dto.Id = entity.Id;
                 dto.CreatedDate = entity.CreatedDate;
                 dto.IsDeleted = entity.IsDeleted;
-                return CustomResponseDto<ImageFileDto>.Success(201, dto);
-
-            }
-            catch (Exception ex)
-            {
-
-                return CustomResponseDto<ImageFileDto>.Failure(500, $"Image kayıt hatası - {ex.Message}");
-            }
+                return CustomResponseDto<FileDto>.Success(201, dto);
         }
-
-        public async Task<CustomResponseDto<IEnumerable<ImageFileDto>>> AddRangeAsync(IEnumerable<ImageFileDto> dtos)
+        public async Task<CustomResponseDto<IEnumerable<FileDto>>> AddRangeAsync(IEnumerable<FileDto> dtos)
         {
             var addedFiles = new List<ImageFile>();
 
-            try
-            {
                 foreach (var dto in dtos)
                 {
                     var entity = new ImageFile()
@@ -77,68 +62,53 @@ namespace AppouseProject.Service.Services
                 }
                 await _repository.AddRangeAsync(addedFiles);
                 await _unitOfWork.CommitAsync();
-                return CustomResponseDto<IEnumerable<ImageFileDto>>.Success(201,dtos);
-            }
-            catch (Exception ex)
-            {
-                return CustomResponseDto<IEnumerable<ImageFileDto>>.Failure(500, $"Toplu dosya ekleme hatası - {ex.Message}");
-            }
+                return CustomResponseDto<IEnumerable<FileDto>>.Success(201,dtos);
         }
 
-        public async Task<CustomResponseDto<IEnumerable<ImageFileDto>>> GetAllAsync()
+        public async Task<CustomResponseDto<IEnumerable<FileDto>>> GetAllAsync()
         {
             var entities = await _repository.GetAll().ToListAsync();
-            var dtoEntities = new List<ImageFileDto>();
+            var dtoEntities = new List<FileDto>();
 
             //entities.ForEach(e => { dtoEntities.Add(_mapper.Map<ImageFileDto>(e)); }); //Include UserName görmüyor
             foreach (var entity in entities)
             {
-               var map =  _mapper.Map<ImageFileDto>(entity);
+               var map =  _mapper.Map<FileDto>(entity);
                 map.UserName = entity.AppUser.UserName;
                 dtoEntities.Add(map);
             }
 
-            return CustomResponseDto<IEnumerable<ImageFileDto>>.Success(200, dtoEntities);
+            return CustomResponseDto<IEnumerable<FileDto>>.Success(200, dtoEntities);
         }
 
-        public async Task<CustomResponseDto<IEnumerable<ImageFileDto>>> GetAllByUserIdAsync(int UserId)
+        public async Task<CustomResponseDto<IEnumerable<FileDto>>> GetAllByUserIdAsync(int UserId)
         {
            var entities = await _repository.GetAllByUserId(UserId).ToListAsync();
-           var dtoEntities = new List<ImageFileDto>();
+           var dtoEntities = new List<FileDto>();
             foreach (var entity in entities)
             {
-                var map = _mapper.Map<ImageFileDto>(entity);
+                var map = _mapper.Map<FileDto>(entity);
                 map.UserName = entity.AppUser.UserName;
                 dtoEntities.Add(map);
             }
-            return CustomResponseDto<IEnumerable<ImageFileDto>>.Success(200, dtoEntities);
+            return CustomResponseDto<IEnumerable<FileDto>>.Success(200, dtoEntities);
         }
 
-        public async Task<CustomResponseDto<ImageFileDto>> GetById(int Id)
+        public async Task<CustomResponseDto<FileDto>> GetById(int Id)
         {
-            try
-            {
+
                var value =  await _repository.GetById(Id);
                if(value == null)
                 {
-                    return CustomResponseDto<ImageFileDto>.Failure(404, " Dosya bulunamadı");
+                    return CustomResponseDto<FileDto>.Failure(404, " Dosya bulunamadı");
                 }
-               var dto = _mapper.Map<ImageFileDto>(value);
-                return CustomResponseDto<ImageFileDto>.Success(200, dto);
-
-            }
-            catch (Exception ex)
-            {
-
-                return CustomResponseDto<ImageFileDto>.Failure(500, $" {ex.Message}");
-
-            }
+               var dto = _mapper.Map<FileDto>(value);
+                return CustomResponseDto<FileDto>.Success(200, dto);
         }
 
         public async  Task<CustomResponseDto<NoContentDto>> RemoveAsync(int id)
         {         
-            try
-            {
+
                 var value = await _repository.GetById(id);
                 _repository.Remove(value);
                 _quotaRepository.QuotaReduction(value.UserId, value.FileSize);
@@ -146,21 +116,12 @@ namespace AppouseProject.Service.Services
 
                 return CustomResponseDto<NoContentDto>.Success(204);
 
-            }
-            catch (Exception ex)
-            {
-
-                return CustomResponseDto<NoContentDto>.Failure(500, $"Image silme hatası - {ex.Message}");
-
-            }
         }
 
         public async Task<CustomResponseDto<IEnumerable<NoContentDto>>> RemoveRangeAsync(List<int> ids)
         {
             var removeFiles = new List<ImageFile>();
 
-            try
-            {
                 foreach (var id in ids)
                 {
                     var value = await _repository.GetById(id);
@@ -171,14 +132,6 @@ namespace AppouseProject.Service.Services
                 await _unitOfWork.CommitAsync();
 
                 return CustomResponseDto<IEnumerable<NoContentDto>>.Success(204);
-
-            }
-            catch (Exception ex)
-            {
-
-                return CustomResponseDto<IEnumerable<NoContentDto>>.Failure(500, $"Image silme hatası - {ex.Message}");
-
-            }
 
         }
     }

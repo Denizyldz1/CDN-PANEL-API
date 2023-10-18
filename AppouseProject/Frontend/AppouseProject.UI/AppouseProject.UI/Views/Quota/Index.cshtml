@@ -1,0 +1,34 @@
+﻿@model QuotaModel
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Link Bilgileri</h4>
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>userId</th>
+                        <th>Toplam Alana</th>
+                        <th>Kullanılan Alan</th>
+                        <th>Kalan ALan</th>
+                    </tr>
+                </thead>
+                <tbody>
+                        <tr>
+                            <td>@Model.UserId</td>
+                            <td>@Model.StorageSpaceByte</td>
+                            <td>@Model.UsedSpaceByte</td>
+                            <td>@Model.RemainingQuota</td>
+                        </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+

@@ -45,7 +45,6 @@ namespace AppouseProject.Service.Services
                 new Claim(ClaimTypes.Role,role.Result.First()),
                 //Her token için token ıd veriyoruz
                new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                // UserName kaldırabiliriz projemiz de userName null getirebiliriz.
                 new Claim(ClaimTypes.Name,appUser.UserName)
             };
 
@@ -62,9 +61,9 @@ namespace AppouseProject.Service.Services
             //  Token imzası
             var securityKey = SignService.GetSymmetricSecurityKey(_tokenOption.SecurityKey);
 
-            SigningCredentials signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
+            var signingCredentials = new SigningCredentials(securityKey, SecurityAlgorithms.HmacSha256Signature);
 
-            JwtSecurityToken jwtSecurityToken = new JwtSecurityToken
+            var jwtSecurityToken = new JwtSecurityToken
                 (
                 issuer: _tokenOption.Issuer,
                 expires: accessTokenExpiration,

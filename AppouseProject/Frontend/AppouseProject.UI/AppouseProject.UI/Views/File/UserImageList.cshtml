@@ -1,0 +1,62 @@
+﻿@model List<FileModel>
+
+@{
+    ViewData["Title"] = "UserImageList";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<a asp-controller="File" asp-action="Save" class="btn btn-outline-info mt-1">Yeni Resim Ekle</a>
+      <table class="table table-bordered">
+           <thead>
+               <tr>
+                   <th>*</th>
+                   <th>FileName</th>
+                   <th>FileType</th>
+                   <th>FileSize</th>
+                   <th>FilePatchUrl</th>
+                   <th>UserId</th>
+                   <th>UserName</th>
+                   <th>Image</th>
+                    <th>Sil</th>
+
+               </tr>
+           </thead>
+           <tbody>
+               @foreach (var item in Model)
+               {
+                   <tr>
+                       <td>@item.Id</td>
+                       <td>@item.FileName</td>
+                       <td>@item.FileType</td>
+                       <td>@item.FileSize</td>
+                       <td>@item.FilePatchUrl</td>
+                       <td>@item.UserId</td>
+                       <td>@item.UserName</td>
+                <td>
+                    <img src="@item.FilePatchUrl" width="200" height="200" />
+                </td>
+                <td>
+                    <form method="post" name="deleteForm" asp-controller="File" asp-action="Remove" class="d-inline">
+                        <input type="hidden" name="Id" value="@item.Id">
+                        <button class="btn btn-outline-danger ml-2">Sil</button>
+                    </form>
+                </td>
+                   </tr>
+
+               }
+           </tbody>
+       </table>
+@section Scripts
+    {
+    <script>
+        let formElement = document.getElementsByName('deleteForm');
+        for (let i = 0; i < formElement.length; i++) {
+            formElement[i].addEventListener('submit', function (eventArgs) {
+                let confirmed = confirm("Dikkat!! Bu kayıt silinecek, devam etmek istiyor musunuz?");
+                if (!confirmed) {
+                    eventArgs.preventDefault();
+                }
+            });
+        }
+    </script>
+    }

@@ -17,15 +17,13 @@ namespace AppouseProject.Service.Services
     {
         private readonly UserManager<AppUser> _userManager;
         private readonly RoleManager<AppRole> _roleManager;
-        private readonly IMapper _mapper;
         private readonly IUnitOfWork _unitOfWork;
         private readonly IQuotaRepository _quotaRepository;
 
-        public UserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IMapper mapper, IUnitOfWork unitOfWork, IQuotaRepository quotaRepository)
+        public UserService(UserManager<AppUser> userManager, RoleManager<AppRole> roleManager, IUnitOfWork unitOfWork, IQuotaRepository quotaRepository)
         {
             _userManager = userManager;
             _roleManager = roleManager;
-            _mapper = mapper;
             _unitOfWork = unitOfWork;
             _quotaRepository = quotaRepository;
         }
@@ -98,7 +96,7 @@ namespace AppouseProject.Service.Services
                         int Id = (int)user.Id;
                         _quotaRepository.QuotaUpdate(Id, (int)UserQuota.Standart, newRole);
 
-                        _unitOfWork.CommitAsync();
+                        await _unitOfWork.CommitAsync();
                         return CustomResponseDto<NoContentDto>.Success(204);
                     }
                     else
@@ -138,7 +136,7 @@ namespace AppouseProject.Service.Services
 
             if (!_roleManager.RoleExistsAsync($"{type}").Result)
             {
-                AppRole role = new AppRole()
+                var role = new AppRole()
                 {
                     Name = $"{type}"
                 };
@@ -148,7 +146,7 @@ namespace AppouseProject.Service.Services
                     await _userManager.AddToRoleAsync(user, $"{type}");
                 }
             }
-
+            await _userManager.AddToRoleAsync(user, $"{type}");
             int storageSpaceByte = 0;
 
             if (type == UserType.Standart && type==null)
@@ -165,8 +163,8 @@ namespace AppouseProject.Service.Services
                 UsedSpaceByte = 0,
                 StorageSpaceByte = storageSpaceByte,
             };
-            _quotaRepository.AddAsync(quota);
-            _unitOfWork.CommitAsync();
+            await _quotaRepository.AddAsync(quota);
+            await _unitOfWork.CommitAsync();
 
 
             var mapping = new AppUserWithRoleModel()

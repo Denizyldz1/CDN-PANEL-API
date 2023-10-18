@@ -33,6 +33,8 @@ namespace AppouseProjet.API.Filters
                     context.Result = new ObjectResult(CustomResponseDto<NoContentDto>.Failure(401, errorMessage));
                     return;
                 };
+                await next.Invoke();
+                return;
 
             }
             catch (Exception ex)

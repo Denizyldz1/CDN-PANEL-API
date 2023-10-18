@@ -10,7 +10,7 @@ namespace AppouseProject.Service.Mapping
     {
         public MapProfile()
         {
-            CreateMap<ImageFile, ImageFileDto>().ReverseMap();
+            CreateMap<ImageFile, FileDto>().ReverseMap();
             CreateMap<Quota, QuotaDto>().ReverseMap();
 
             CreateMap<AppUser, SignInModel>().ReverseMap();

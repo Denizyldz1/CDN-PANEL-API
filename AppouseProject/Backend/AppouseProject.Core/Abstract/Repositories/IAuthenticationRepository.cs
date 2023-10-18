@@ -3,9 +3,8 @@ using System.Linq.Expressions;
 
 namespace AppouseProject.Core.Abstract.Repositories
 {
-    public interface IAuthenticationRepository
+    public interface IAuthenticationRepository : IGenericRepository<UserRefreshToken>
     {
-        IQueryable<UserRefreshToken> Where(Expression<Func<UserRefreshToken, bool>> expression);
         Task AddAsync(UserRefreshToken token);
         void Remove(UserRefreshToken token);
 

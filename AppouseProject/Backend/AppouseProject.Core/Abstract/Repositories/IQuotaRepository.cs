@@ -2,7 +2,7 @@
 
 namespace AppouseProject.Core.Abstract.Repositories
 {
-    public interface IQuotaRepository
+    public interface IQuotaRepository : IGenericRepository<Quota>
     {
         Task<Quota> QuotaByUserId(int userId);
         void QuotaIncrease(int userId, int amount);

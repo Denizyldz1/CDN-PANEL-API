@@ -4,16 +4,13 @@ using Microsoft.EntityFrameworkCore;
 
 namespace AppouseProject.Data.Repositories
 {
-    public class FileRepository : IFileRepository
+    public class FileRepository : GenericRepository<ImageFile>, IFileRepository
     {
-        private readonly AppDbContext _context;
-        private readonly DbSet<ImageFile> _dbSet;
 
-        public FileRepository(AppDbContext context)
+        public FileRepository(AppDbContext context) : base(context)
         {
-            _context = context;
-            _dbSet = _context.Set<ImageFile>();
         }
+
         public async Task AddAsync(ImageFile file)
         {
             await _dbSet.AddAsync(file);

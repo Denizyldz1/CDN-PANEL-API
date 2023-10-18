@@ -2,7 +2,7 @@
 
 namespace AppouseProject.Core.Abstract.Repositories
 {
-    public interface IFileRepository
+    public interface IFileRepository : IGenericRepository<ImageFile>
     {
         IQueryable<ImageFile> GetAll();
         IQueryable<ImageFile> GetAllByUserId(int UserId);

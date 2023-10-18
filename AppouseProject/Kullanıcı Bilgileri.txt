@@ -22,3 +22,20 @@ Kullanici 2 :
   "confirmPassword": "Kullanici2.",
   "userType": "Premium"
 }
+
+Kullanici 3 :
+{
+  "userName": "kullanici3",
+  "email": "kullanici3@example.com",
+  "password": "Kullanici3.",
+  "confirmPassword": "Kullanici3.",
+  "userType": "Standart"
+}
+Kullanici 4 :
+{
+  "userName": "kullanici4",
+  "email": "kullanici4@example.com",
+  "password": "Kullanici4.",
+  "confirmPassword": "Kullanici4.",
+  "userType": "Premium"
+}

@@ -9,16 +9,19 @@ namespace AppouseProjet.API.Controllers
     public class QuotaController : CustomBaseController
     {
         private readonly IQuotaService _quotaService;
+        private readonly IUserService _userService;
 
-        public QuotaController(IQuotaService quotaService)
+        public QuotaController(IQuotaService quotaService, IUserService userService)
         {
             _quotaService = quotaService;
+            _userService = userService;
         }
-        [HttpGet("{userId}")]
+        [HttpGet("{userName}")]
         [ServiceFilter(typeof(AuthorityControl))]
-        public async Task<IActionResult> QuotaControl(int userId)
+        public async Task<IActionResult> QuotaControl(string userName)
         {
-           var value =  await _quotaService.QuotaByUserId(userId);
+           var user =  await _userService.GetUserByNameAsync(userName);
+           var value =  await _quotaService.QuotaByUserId(user.Data.Id);         
            return CreateActionResult(value);
         }
     }

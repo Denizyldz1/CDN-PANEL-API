@@ -1,0 +1,16 @@
+﻿@model List<FileModel>
+@{
+}
+<a asp-controller="File" asp-action="Save" class="btn btn-outline-info mt-1">Yeni Resim Ekle</a>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Resimler</h4>
+        <div class="table-responsive pt-3">
+            @foreach(var item in Model)
+            {
+                    <img src="@item.FilePatchUrl" width="200" height="200"/>
+            }
+        </div>
+    </div>
+</div>

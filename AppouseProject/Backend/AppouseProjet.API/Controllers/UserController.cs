@@ -1,5 +1,7 @@
 ﻿using AppouseProject.Core.Abstract.Services;
+using AppouseProject.Core.Dtos;
 using AppouseProject.Core.Dtos.AppUserModels;
+using AppouseProject.Core.Enums;
 using AppouseProjet.API.Filters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -17,10 +19,15 @@ namespace AppouseProjet.API.Controllers
         }
         [HttpPost]
         [Authorize(Roles = "Admin")] // Kullanıcılar Admin oluşturur
-        public async Task<IActionResult> CreateUser(SignInModel model)
+        public async Task<IActionResult> CreateUser([FromBody]SignInModel model)
         {
-            var user = await _userService.CreateUserAsync(model);
-            return CreateActionResult(user);
+            if(model.UserType ==UserType.Premium || model.UserType ==UserType.Standart)
+            {
+                var user = await _userService.CreateUserAsync(model);
+                return CreateActionResult(user);
+            }
+            return CreateActionResult(CustomResponseDto<SignInModel>.Failure(400, "UserType hatası sadece Premium ve Standart değerleri kabul edilir."));
+
         }
 
         [HttpGet]

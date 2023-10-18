@@ -5,12 +5,24 @@
       "PackagePath": "staticwebassets\\Upload\\1_indir (2).jfif"
     },
     {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\1_photo-1575936123452-b67c3203c357.jfif",
+      "PackagePath": "staticwebassets\\Upload\\1_photo-1575936123452-b67c3203c357.jfif"
+    },
+    {
       "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\2_deneme1.png",
       "PackagePath": "staticwebassets\\Upload\\2_deneme1.png"
     },
     {
       "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\2_indir (1).jfif",
       "PackagePath": "staticwebassets\\Upload\\2_indir (1).jfif"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\Deleted\\1_Test1.jfif",
+      "PackagePath": "staticwebassets\\Upload\\Deleted\\1_Test1.jfif"
+    },
+    {
+      "Id": "C:\\Users\\PC\\Desktop\\AppouseProject\\Backend\\AppouseProjet.API\\wwwroot\\Upload\\Deleted\\1_deneme1.png",
+      "PackagePath": "staticwebassets\\Upload\\Deleted\\1_deneme1.png"
     },
     {
       "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AppouseProjet.API.Microsoft.AspNetCore.StaticWebAssets.props",

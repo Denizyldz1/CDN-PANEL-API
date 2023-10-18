@@ -1,0 +1,73 @@
+﻿@model List<UserModel>
+@{
+}
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Link Bilgileri</h4>
+        <div class="table-responsive pt-3">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>*</th>
+                        <th>UserName</th>
+                        <th>Email</th>
+                        <th>UserType</th>
+                        <th>Role Değiştir</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.Id</td>
+                            <td>@item.UserName</td>
+                            <td>@item.Email</td>
+                            <td>@item.UserType</td>
+                            <td>
+                                @if (item.UserType == UserRoleType.Standart)
+                                {
+                                    <form class="roleForm" asp-controller="User" asp-action="ChangeRole" method="post">
+                                        <input type="hidden" name="UserId" value="@item.Id" />
+                                        <input type="hidden" name="RoleName" value="Premium" />
+                                        <button type="button" class="btn btn-outline-primary" onclick="submitForm(this)">Rol Yükselt</button>
+                                    </form>
+                                }
+                                else if (item.UserType == UserRoleType.Premium)
+                                {
+                                    <form class="roleForm" asp-controller="User" asp-action="ChangeRole" method="post">
+                                        <input type="hidden" name="UserId" value="@item.Id" />
+                                        <input type="hidden" name="RoleName" value="Standart" />
+                                        <button type="button" class="btn btn-outline-danger" onclick="submitForm(this)">Rol Düşür</button>
+                                    </form>
+                                }
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+            <a href="/User/Save" class="btn btn-outline-info mt-1">Yeni Kullanıcı Oluştur</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts{
+    <script>
+        function submitForm(button) {
+            var form = $(button).closest('.roleForm');
+
+            // Submit the form using jQuery AJAX
+            $.ajax({
+                type: "POST",
+                url: form.attr('action'),
+                data: form.serialize(),
+                success: function (data) {
+                    // Handle the response if needed
+                },
+                error: function (error) {
+                    // Handle the error if the request fails
+                }
+            });
+        }
+    </script>
+}
